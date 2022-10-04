@@ -6,7 +6,7 @@ module.exports = function (eleventyConfig) {
   // server options
   eleventyConfig.setServerOptions({
     port: 3000,
-    input: "./dist",
+    input: "./dist/",
   });
 
   // override base config
