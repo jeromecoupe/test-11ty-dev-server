@@ -4,19 +4,18 @@
   "description": "Testing NPM scripts with eleventy dev server",
   "main": "index.js",
   "scripts": {
-    "postinstall": "npm run build",
     "clean": "rimraf \"./dist\"",
+    "server": "npx @11ty/eleventy-dev-server --input=\"./dist\" --port=3000",
     "styles:dev": "sass --embed-source-map --source-map-urls=\"absolute\" \"./src/assets/scss/main.scss\" \"./dist/assets/css/main.css\"",
     "styles:prod": "sass --no-source-map --style=\"compressed\" \"./src/assets/scss/main.scss\" \"./dist/assets/css/main.css\"",
     "scripts:dev": "esbuild \"./src/assets/js/main.js\" --target=\"es6\" --bundle --outfile=\"./dist/assets/js/main.bundle.js\"",
     "scripts:prod": "esbuild \"./src/assets/js/main.js\" --target=\"es6\" --bundle --minify --outfile=\"./dist/assets/js/main.bundle.js\"",
-    "eleventy:dev": "npx @11ty/eleventy --serve",
     "eleventy:prod": "npx @11ty/eleventy",
     "watch:styles": "onchange \"./src/assets/scss/**/*\" -- npm run styles:dev",
     "watch:scripts": "onchange \"./src/assets/js/**/*\" -- npm run scripts:dev",
-    "dev": "npm-run-all --parallel eleventy:dev watch:*",
-    "build": "npm-run-all clean --parallel eleventy:prod styles:prod scripts:prod",
-    "start": "npm run dev"
+    "watch:eleventy": "npx @11ty/eleventy --watch",
+    "dev": "npm-run-all --parallel server watch:*",
+    "build": "npm-run-all clean --parallel eleventy:prod styles:prod scripts:prod"
   },
   "keywords": [
     "eleventy"

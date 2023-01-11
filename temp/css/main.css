@@ -1,0 +1,11 @@
+html {
+  font: 400 100%/1.42 system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: red;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22file:///Users/jeromecoupe/data/sandboxes/test-11ty-dev-server/src/assets/scss/base/_base-html.scss%22,%22file:///Users/jeromecoupe/data/sandboxes/test-11ty-dev-server/src/assets/scss/base/_base-body.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAAA;EACE;;;ACDF;EACE;EACA;EACA%22,%22file%22:%22main.css%22%7D */
