@@ -1,9 +1,12 @@
 module.exports = function (eleventyConfig) {
+  // don't ignore .gitignore entries
+  eleventyConfig.setUseGitIgnore(false);
+
   // ignore folders
   eleventyConfig.ignores.add("./src/assets/");
 
   // watch targets (add small wait time before rebuild)
-  // eleventyConfig.setWatchThrottleWaitTime(200);
+  eleventyConfig.setWatchThrottleWaitTime(200);
   eleventyConfig.addWatchTarget("./src/assets/scss/**/*");
   eleventyConfig.addWatchTarget("./src/assets/js/**/*");
 
