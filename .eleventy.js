@@ -1,11 +1,19 @@
 module.exports = function (eleventyConfig) {
-  // ignore folders
+  // server config
+  eleventyConfig.setServerOptions({
+    port: 3000,
+  });
+
+  // don't ignore .gitignore entries
+  eleventyConfig.setUseGitIgnore(false);
+
+  // ignore assets folders (NPM scripts pipeline)
   eleventyConfig.ignores.add("./src/assets/");
 
-  // watch targets (add small wait time before rebuild)
-  eleventyConfig.setWatchThrottleWaitTime(200);
-  eleventyConfig.addWatchTarget("./src/assets/scss/**/*");
-  eleventyConfig.addWatchTarget("./src/assets/js/**/*");
+  // passthrough copy
+  eleventyConfig.setServerPassthroughCopyBehavior("copy");
+  eleventyConfig.addPassthroughCopy({ "./temp/css/": "assets/css/" });
+  eleventyConfig.addPassthroughCopy({ "./temp/js/": "assets/js/" });
 
   // server options
   eleventyConfig.setServerOptions({
