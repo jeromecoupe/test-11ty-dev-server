@@ -1,14 +1,11 @@
 module.exports = function (eleventyConfig) {
-  // don't ignore .gitignore entries
-  eleventyConfig.setUseGitIgnore(false);
-
   // ignore folders
   eleventyConfig.ignores.add("./src/assets/");
 
   // server options
   eleventyConfig.setServerOptions({
+    watch: ["./dist/assets/css/**/*", "./dist/assets/js/**/*"],
     port: 3000,
-    input: "_dist",
   });
 
   // override base config

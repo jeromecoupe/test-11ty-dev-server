@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf \"./dist\"",
-    "server": "npx @11ty/eleventy-dev-server --input=\"./dist\" --port=3000",
+    "server": "npx @11ty/eleventy --serve --quiet",
     "styles:dev": "sass --embed-source-map --source-map-urls=\"absolute\" \"./src/assets/scss/main.scss\" \"./dist/assets/css/main.css\"",
     "styles:prod": "sass --no-source-map --style=\"compressed\" \"./src/assets/scss/main.scss\" \"./dist/assets/css/main.css\"",
     "scripts:dev": "esbuild \"./src/assets/js/main.js\" --target=\"es6\" --bundle --outfile=\"./dist/assets/js/main.bundle.js\"",
@@ -13,7 +13,6 @@
     "eleventy:prod": "npx @11ty/eleventy",
     "watch:styles": "onchange \"./src/assets/scss/**/*\" -- npm run styles:dev",
     "watch:scripts": "onchange \"./src/assets/js/**/*\" -- npm run scripts:dev",
-    "watch:eleventy": "npx @11ty/eleventy --watch",
     "dev": "npm-run-all --parallel server watch:*",
     "build": "npm-run-all clean --parallel eleventy:prod styles:prod scripts:prod"
   },
@@ -23,11 +22,11 @@
   "author": "Jérôme Coupé",
   "license": "UNLICENSED",
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.0-canary.29",
-    "esbuild": "^0.15.5",
+    "@11ty/eleventy": "^2.0.0-beta.1",
+    "esbuild": "^0.17.4",
     "npm-run-all": "^4.1.5",
     "onchange": "^7.1.0",
-    "rimraf": "^3.0.2",
-    "sass": "^1.54.4"
+    "rimraf": "^4.1.1",
+    "sass": "^1.57.1"
   }
 }
